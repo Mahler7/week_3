@@ -7,6 +7,9 @@ class RecipesController < ApplicationController
   def show
     #@recipe = Recipe.find_by(id: params[:id]) #seaches by id for id entered in params second id must match id in routes
     @recipes = Recipe.find(params[:id])
+
+    @ingredient_list = @recipes.ingredient_list
+    @directions_list = @recipes.directions_list
   end
 
   def new

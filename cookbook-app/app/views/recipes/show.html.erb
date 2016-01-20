@@ -1,7 +1,22 @@
 <h1><%= @recipes.title %></h1>
-<h2><%= @recipes.chef %></h2>
-<h3><%= @recipes.ingredients %></h3>
-<h3><%= @recipes.directions %></h3>
+<h2>By: <%= @recipes.chef %></h2>
+<h4>Updated on: <%= @recipes.friendly_updated_at %></h4>
+
+<h3>Prep Time: <%= @recipes.friendly_preptime %></h3>
+
+<h3>Ingredients:</h3>
+<ul>
+  <% @ingredient_list.each do |ingredient| %>
+    <li><%= ingredient %></li>
+  <% end %>
+</ul>
+<h3>Directions:</h3>
+<ol>
+  <% @directions_list.each do |step| %>
+    <li><%= step %></li>
+  <% end %>
+</ol>
+<%= image_tag @recipes.image %>
 
 <%= link_to "Home", "/recipes" %>
 <%= link_to "Edit", "/recipes/#{@recipes.id}/edit" %>
