@@ -2,6 +2,10 @@
   
   def index
     @recipes = Recipe.all
+
+    if params[:sort]
+      @recipes = Recipe.order(:preptime)
+    end
   end
 
   def show
